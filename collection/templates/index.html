@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load humanize %}
+
+{% block title %}
+	Homepage - {{ block.super }}
+{% endblock title %}
+
+{% block content %}
+	<h1>Hello World!</h1>
+	<p>This is my name: {{ thing|truncatewords:1 }}</p>
+{% endblock content %}

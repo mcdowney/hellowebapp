@@ -1,0 +1,23 @@
+body {
+	background-color: #800000;
+	padding-left: 15px;
+}
+
+h1 {
+	background-color: #800000;
+	font-family: 'Arial';
+	color: #ffffff;
+}
+
+p {
+	color: white;
+}
+
+a:link {
+	color: white;
+}
+
+a:visited {
+	color: hotpink;
+}
+

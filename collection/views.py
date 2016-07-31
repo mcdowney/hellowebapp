@@ -1,11 +1,10 @@
 from django.shortcuts import render
+from collection.models import Book
 
 # Create your views here.
 def index(request):
 	# This is your new view
-	number = 6
-	thing = "Thing name"
+	books = Book.objects.all()
 	return render(request, 'index.html', {
-		'number': number,
-		'thing': thing,
+		'books': books,
 	})

@@ -12,20 +12,22 @@
 	{% block header %}{% endblock header %}
 </head>
 <body>
-	<div class="background">
-		<header>
-			<div class="transbox">
-				<h1>Hello Web App</h1>
-			</div>
-			<nav>
+	<header>
+		<div id="headerwrap">
+			<h1>Carrboro Book Club</h1>
+		</div>
+		<nav>
+		<div id="navigationwrap">
+			<div class="row">
 				<ul>
 					<li><a href="{% url 'home' %}">Home</a></li>
 					<li><a href="{% url 'about' %}">About</a></li>
 					<li><a href="{% url 'contact' %}">Contact</a></li>
 				</ul>
-			</nav>	
-		</header>
-	</div>	
+			</div>
+		</div>	
+		</nav>	
+	</header>
 	{% block content %}{% endblock content %}
 	{% block footer %}{% endblock footer %}
 </body>

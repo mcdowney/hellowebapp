@@ -1,23 +1,89 @@
+header h1 {
+	color: #00004d;
+	background-color: white;
+	text-align: center;
+}
+
 body {
-	background-color: #800000;
+	background-color: #00004d;
 	padding-left: 15px;
 }
 
 h1 {
-	background-color: #800000;
 	font-family: 'Arial';
 	color: #ffffff;
 }
 
+div.background {
+	background-image: url("https://www.floodsmart.gov/floodsmart/images/FEMA-understanding-flood-maps.jpg");
+}
+
+div.transbox {
+	margin-top: ;
+	margin: 30px;
+	background-color: #ffffff;
+	border: 1px solid white;
+	opacity: 0.8;
+}
+
+div.transbox header h1 {
+	padding: 20px;
+	margin: 5%;
+	font-weight: bold;
+}
+
 p {
 	color: white;
+	font-family: 'Arial narrow';
+	padding-left: 30px;
 }
 
 a:link {
 	color: white;
+	font-family: 'Arial';
 }
 
 a:visited {
-	color: hotpink;
+	color: #00004d;
+	font-family: 'Arial';
 }
 
+a:hover {
+	font-family: 'Arial';
+}
+
+a:active {
+	font-family: 'Arial';
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	border: 1px solid #00004d;
+	background-color: white;
+}
+
+li {
+	float: left;
+	border-right: 1px solid #00004d;
+
+}
+li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+li a.active {
+	background-color: #0000e6;
+	color: white;
+}
+
+li a:hover:not(.active) {
+	background-color: #00004d;
+	color: white;
+}

@@ -2,14 +2,10 @@
 {% load staticfiles %}
 
 {% block title %}
-	Homepage - {{ block.super }}
+	{{ book.name }} - {{ block.super }}
 {% endblock title %}
 
 {% block content %}
-	{% for book in books %}
-	<h1><a href="{% url 'book_detail' slug=book.slug %}">
-		{{ book.name }}
-	</a></h1>
+	<h1>{{ book.name }}</h1>
 	<p>{{ book.description }}</p>
-	{% endfor %}
 {% endblock content %}

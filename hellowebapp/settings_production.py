@@ -13,7 +13,7 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PRONTO', 'https')
 ALLOWED_HOSTS = ['*']
 
 # Set debug to false
-DEBUG = false
+DEBUG = False
 
 # Static asset configuration
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'

@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, RedirectView
 from collection import views
 from django.contrib.auth.views import (
     password_reset,
@@ -33,6 +33,7 @@ urlpatterns = [
 	url(r'^contact/$',
 		TemplateView.as_view(template_name='contact.html'),
 		name='contact'),
+    url(r'^books/$', RedirectView.as_view(pattern_name='browse', permanent=True)),
     url(r'^books/(?P<slug>[-\w]+)/$', views.book_detail,
         name='book_detail'),
     url(r'^books/(?P<slug>[-\w]+)/edit/$', views.edit_book,
@@ -43,6 +44,9 @@ urlpatterns = [
     url(r'^accounts/password/done/$', password_reset_complete, {'template_name': 'registration/password_reset_complete.html'}, name="password_reset_complete"),
     url(r'^accounts/register/$', MyRegistrationView.as_view(), name='registration_register'),
     url(r'^accounts/create_book/$', views.create_book, name='registration_create_book'),
+    url(r'^browse/$', RedirectView.as_view(pattern_name='browse', permanent=True)),
+    url(r'^browse/name/$', views.browse_by_name, name='browse'),
+    url(r'^browse/name/(?P<initial>[-\w]+)/$', views.browse_by_name, name='browse_by_name'),
     url(r'^accounts/', include('registration.backends.simple.urls')),
     url(r'^admin/', include(admin.site.urls)),
 

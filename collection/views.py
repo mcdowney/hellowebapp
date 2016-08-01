@@ -66,3 +66,20 @@ def create_book(request):
 	return render(request, 'books/create_book.html', {
 		'form': form,
 			})
+
+def browse_by_name(request, initial=None):
+	if initial:
+		books = Book.objects.filter(name__istartswith=initial).order_by('name')
+	else:
+		books = Book.objects.all().order_by('name')
+
+	return render(request, 'search/search.html', {
+		'books': books,
+		'initial': initial,
+		})
+
+def index(request):
+	books = Book.objects.all()
+	return render(request, 'index.html', {
+		'books': books
+		})

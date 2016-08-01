@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
 from collection.forms import BookForm
 from collection.models import Book
-
+from django.template.defaultfilters import slugify
+from django.contrib.auth.decorators import login_required
+from django.http import Http404
 
 # Create your views here.
 def index(request):
@@ -18,10 +20,15 @@ def book_detail(request, slug):
 	return render(request, 'books/book_detail.html', {
 		'book': book,
 		})
-
+@login_required
 def edit_book(request, slug):
 	# grab the object...
 	book = Book.objects.get(slug=slug)
+
+	# make sure the logged in user is the owner of the thing
+	if book.user != request.user:
+		raise Http404
+
 	# set the form we're using...
 	form_class = BookForm
 	# if we're coming to this view from a submitted form.
@@ -32,7 +39,7 @@ def edit_book(request, slug):
 			#save the new data
 			form.save()
 			return redirect('book_detail', slug=book.slug)
-	# otherwise, just recreate the form
+	# otherwise, just create the form
 	else: 
 		form = form_class(instance=book)
 
@@ -41,3 +48,21 @@ def edit_book(request, slug):
 		'book': book,
 		'form': form,
 	})
+
+def create_book(request):
+	form_class = BookForm
+	if request.method == 'POST':
+		form = form_class(request.POST)
+		if form.is_valid():
+			book = form.save(commit=False)
+			book.user = request.user
+			book.slug = slugify(book.name)
+			book.save()
+			return redirect('book_detail', slug=book.slug)
+
+	else:
+		form = form_class()
+
+	return render(request, 'books/create_book.html', {
+		'form': form,
+			})

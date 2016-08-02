@@ -11,7 +11,7 @@ h1 {
 }
 
 #headerwrap {
-	background: url("http://16411-presscdn-0-65.pagely.netdna-cdn.com/wp-content/uploads/2015/12/book-spines.jpeg") no-repeat center top;
+	background: url(..images/book-spines.jpeg) no-repeat center top;
 	margin-top: -10px;
 	padding-top:50px;
 	text-align:center;

@@ -11,7 +11,7 @@ h1 {
 }
 
 #headerwrap {
-	background: url(..images/book-spines.jpeg) no-repeat center top;
+	background: url(../images/book-spines.jpeg) no-repeat center top;
 	margin-top: -10px;
 	padding-top:50px;
 	text-align:center;
